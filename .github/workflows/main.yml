@@ -15,7 +15,7 @@ jobs:
       - name: AI Code Review Action
         uses: freeedcom/ai-codereviewer@v2.4.1
       - name: AI Code Reviewer
-        uses: millionacrenest/ai-code-reviewer@main
+        uses: millionacrenest/robots@main
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
