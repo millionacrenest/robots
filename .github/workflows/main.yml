@@ -24,7 +24,7 @@ jobs:
             openai_api_key: ${{ secrets.OPENAI_API_KEY }}
             owner: ${{ github.repository_owner }}
             repo: ${{ github.event.repository.name }}
-            pr_number: ${{ github.event.number }}
+            pr_number: 4
             file_extensions: ".py,.js,.html"
             exclude_paths: "test/,docs/"
 
