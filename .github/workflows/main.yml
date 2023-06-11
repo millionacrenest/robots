@@ -15,6 +15,7 @@ jobs:
       - name: AI Code Reviewer
         uses: millionacrenest/robots@main
         with:
+          branch: updateTextField4
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           exclude: "**/*.json, **/*.md" # Optional: exclude patterns separated by commas
