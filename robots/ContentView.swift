@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var robotName: String?
+    
     var body: some View {
+        
+        let binding = Binding<String>(get: {
+            self.robotName ?? ""
+        }, set: {
+            self.robotName = $0
+        })
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, CODE REVIEW ROBOTS!")
+            Text("Hello Robot")
+            Text(robotName ?? "")
+            TextField("Enter your robot name:", text: binding)
+            
+            
         }
         .padding()
     }
