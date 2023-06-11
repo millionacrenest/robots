@@ -1,20 +1,50 @@
-name: AI Code Reviewer
-
+name: Codeball
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-permissions: write-all
+  pull_request: {}
+  pull_request_review_comment:
+    types: [created, edited]
+
 jobs:
-  review:
+  codeball_job:
     runs-on: ubuntu-latest
+    name: Codeball
     steps:
-      - name: AI Code Review Action
-        uses: freeedcom/ai-codereviewer@v2.4.1
-      - name: AI Code Reviewer
-        uses: millionacrenest/robots@main
+      - name: Codeball
+        uses: sturdy-dev/codeball-action@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          exclude: "**/*.json, **/*.md" # Optional: exclude patterns separated by commas
+          # For all configuration options see https://github.com/sturdy-dev/codeball-action/blob/v2/action.yml
+          approvePullRequests: "true"
+          labelPullRequestsWhenApproved: "true"
+          labelPullRequestsWhenReviewNeeded: "false"
+          failJobsWhenReviewNeeded: "false"
+
+
+
+
+
+
+#name: AI Code Reviewer
+#run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+#on: [push]
+#permissions: write-all
+#jobs:
+#  review:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+#      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+#      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+#      - name: Check out repository code
+#        uses: actions/checkout@v3
+#      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+#      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+#      - name: List files in the repository
+#        run: |
+#          ls ${{ github.workspace }}
+#      - run: echo "🍏 This job's status is ${{ job.status }}."
+#      - name: AI Code Reviewer
+#        uses: millionacrenest/robots@main
+#        with:
+#          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+#          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+#          exclude: "**/*.json, **/*.md"
