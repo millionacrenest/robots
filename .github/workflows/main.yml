@@ -1,8 +1,9 @@
-name: GitHub Actions Demo
+name: AI Code Reviewer
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
+permissions: write-all
 jobs:
-  Explore-GitHub-Actions:
+  review:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
