@@ -17,16 +17,12 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - name: AI Code Review
-        uses: AleksandrFurmenkovOfficial/ai-code-review@v0.1.1
+      - name: AI Code Reviewer
+        uses: millionacrenest/robots@main
         with:
-            token: ${{ secrets.GH_TOKEN }}
-            openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-            owner: ${{ github.repository_owner }}
-            repo: ${{ github.event.repository.name }}
-            pr_number: 4
-            file_extensions: ".py,.js,.html"
-            exclude_paths: "test/,docs/"
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          exclude: "**/*.json, **/*.md"
 
 
 
